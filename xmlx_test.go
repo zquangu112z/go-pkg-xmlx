@@ -5,8 +5,9 @@
 package xmlx
 
 import (
-	"encoding/xml"
 	"testing"
+
+	"github.com/zquangu112z/go-pkg-xmlx/third_party/xml"
 )
 
 func TestLoadLocal(t *testing.T) {

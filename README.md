@@ -1,5 +1,10 @@
 ## XMLX
 
+### Note
+
+* This lib use the customed encoding/xml package supporting LineNumber. eg. node.LineNumber
+* The customed package is stored in /third_party
+
 *NOTICE*
 
 This is forked repository that was provided from github.com/jteeuwen/go-pkg-xmlx.

@@ -6,10 +6,11 @@ package xmlx
 
 import (
 	"bytes"
-	"encoding/xml"
 	"fmt"
 	"strconv"
 	"strings"
+
+	"github.com/zquangu112z/go-pkg-xmlx/third_party/xml"
 )
 
 const (
@@ -39,6 +40,7 @@ type Node struct {
 	Parent     *Node    // Parent node.
 	Value      string   // Node value.
 	Target     string   // procinst field.
+	LineNumber int
 }
 
 func NewNode(tid byte) *Node {

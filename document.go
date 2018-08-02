@@ -29,7 +29,6 @@ package xmlx
 
 import (
 	"bytes"
-	"encoding/xml"
 	"errors"
 	"fmt"
 	"io"
@@ -37,6 +36,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/zquangu112z/go-pkg-xmlx/third_party/xml"
 )
 
 // This signature represents a character encoding conversion routine.
@@ -126,18 +127,22 @@ func (this *Document) LoadStream(r io.Reader, charset CharsetFunc) (err error) {
 			return errors.New(tt.Error())
 		case xml.CharData:
 			t := NewNode(NT_TEXT)
+			t.LineNumber = xp.LineNum
 			t.Value = string([]byte(tt))
 			ct.AddChild(t)
 		case xml.Comment:
 			t := NewNode(NT_COMMENT)
+			t.LineNumber = xp.LineNum
 			t.Value = strings.TrimSpace(string([]byte(tt)))
 			ct.AddChild(t)
 		case xml.Directive:
 			t = NewNode(NT_DIRECTIVE)
+			t.LineNumber = xp.LineNum
 			t.Value = strings.TrimSpace(string([]byte(tt)))
 			ct.AddChild(t)
 		case xml.StartElement:
 			t = NewNode(NT_ELEMENT)
+			t.LineNumber = xp.LineNum
 			t.Name = tt.Name
 			t.Attributes = make([]*Attr, len(tt.Attr))
 			for i, v := range tt.Attr {

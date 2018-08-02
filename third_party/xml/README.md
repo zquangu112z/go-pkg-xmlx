@@ -1,0 +1,1 @@
+This package was forked from the original go package [https://github.com/golang/go/tree/master/src/encoding/xml](https://github.com/golang/go/tree/master/src/encoding/xml) at revision *61874da2ab6d5372043a1f3938a81a19d1165ad*
